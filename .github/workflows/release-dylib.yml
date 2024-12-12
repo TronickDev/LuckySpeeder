@@ -49,8 +49,8 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          name: "LuckySpeeder Tweak"
-          body: "Date: 2024-12-12-04-25"
+          name: "LuckySpeeder with more multipliers to choose of!"
+          body: "Date: 2024-12-12-04-25 This is a fork which adds more multipliers to the overlay. Injection this dylib into a iPA for Sideloading with your favorite tool or directly inject it into an app via \"TrollFools\""
           draft: 0
           prerelease: 0
           tag_name: v0.0.2-1
