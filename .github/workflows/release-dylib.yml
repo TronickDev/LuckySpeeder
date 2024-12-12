@@ -20,15 +20,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          path: LuckySpeeder
       - name: Install dependencies
         run: |
           sudo apt update -y
           sudo apt upgrade -y
           sudo apt install bash curl sudo -y
           bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
-      - name: compile tweak
+      - name: Compile tweak
         run: |
           cd /
           ls -a
-          cd  /TronickDev/LuckySpeeder
+          cd  /LuckySpeeder
           ls -a
