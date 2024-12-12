@@ -22,8 +22,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Install dependencies
         run: |
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
+          sudo xcode-select --switch /Applications/Xcode.app
+          # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          # bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
           # sudo apt update -y
           # sudo apt upgrade -y
           # sudo apt install bash curl sudo -y
