@@ -42,7 +42,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: download results from job build-linux-binary
+      - name: download results from job compile-dylib
         uses: actions/download-artifact@v4
         with:
           name: LuckySpeedTweak
