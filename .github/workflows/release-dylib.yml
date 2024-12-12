@@ -16,16 +16,18 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   create-iOS-dylib:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install dependencies
         run: |
-          sudo apt update -y
-          sudo apt upgrade -y
-          sudo apt install bash curl sudo -y
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
+          # sudo apt update -y
+          # sudo apt upgrade -y
+          # sudo apt install bash curl sudo -y
+          # bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
       - name: Compile tweak
         run: |
           cd /home/runner/work/LuckySpeeder/LuckySpeeder
