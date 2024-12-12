@@ -22,7 +22,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Install dependencies
         run: |
-          apt install bash curl
+          sudo apt update -y
+          sudo apt upgrade -y
+          sudo apt install bash curl sudo -y
           bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
           cd /
           ls -a
