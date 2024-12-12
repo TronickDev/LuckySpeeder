@@ -29,5 +29,6 @@ jobs:
       - name: Compile tweak
         run: |
           cd /home/runner/work/LuckySpeeder/LuckySpeeder
-          ls -a
+          chmod +x build.sh
+          bash build.sh
           
