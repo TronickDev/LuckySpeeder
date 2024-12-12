@@ -15,7 +15,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  create-iOS-dylib:
+  compile-dylib:
     runs-on: macos-latest
     steps:
       - name: Checkout repository
@@ -23,16 +23,36 @@ jobs:
       - name: Install dependencies
         run: |
           sudo xcode-select --switch /Applications/Xcode.app
-          # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          # bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
-          # sudo apt update -y
-          # sudo apt upgrade -y
-          # sudo apt install bash curl sudo -y
-          # bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
       - name: Compile tweak
         run: |
           cd /Users/runner/work/LuckySpeeder/LuckySpeeder
           chmod +x build.sh
           bash build.sh
           ls
+      - name: Upload file artifact to workflow
+        uses: actions/upload-artifact@v4
+        with:
+          name: LuckySpeedTweak
+          path: /Users/runner/work/LuckySpeeder/LuckySpeeder/LuckySpeeder.dylib
           
+  create-release:
+    needs: 
+      - compile-dylib
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: download results from job build-linux-binary
+        uses: actions/download-artifact@v4
+        with:
+          name: LuckySpeedTweak
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "LuckySpeeder Tweak"
+          body: "Date: 2024-12-12-04-25"
+          draft: 0
+          prerelease: 0
+          tag_name: v0.0.2-1
+          files: |
+            LuckySpeeder.dylib
