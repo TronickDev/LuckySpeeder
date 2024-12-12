@@ -30,7 +30,7 @@ jobs:
           bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
       - name: Compile tweak
         run: |
-          cd /
+          cd /home/runner/work
           ls -a
-          cd  /LuckySpeeder
+          cd  /home/runner/work/TronickDev/LuckySpeeder
           ls -a
