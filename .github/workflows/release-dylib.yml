@@ -26,6 +26,9 @@ jobs:
           sudo apt upgrade -y
           sudo apt install bash curl sudo -y
           bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
+      - name: compile tweak
+        run: |
           cd /
           ls -a
           cd  /TronickDev/LuckySpeeder
+          ls -a
