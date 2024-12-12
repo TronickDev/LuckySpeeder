@@ -28,7 +28,6 @@ jobs:
           # bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
       - name: Compile tweak
         run: |
-          cd /home/runner/work
+          cd /home/runner/work/LuckySpeeder
           ls -a
-          cd  /home/runner/work/TronickDev/LuckySpeeder
-          ls -a
+          
