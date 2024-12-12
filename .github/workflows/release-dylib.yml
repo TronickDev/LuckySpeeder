@@ -29,12 +29,21 @@ jobs:
           chmod +x build.sh
           bash build.sh
           ls
-      - name: Upload file artifact to workflow
+      - name: Upload iPhone ARM64 file artifact to workflow
         uses: actions/upload-artifact@v4
         with:
-          name: LuckySpeedTweak
-          path: /Users/runner/work/LuckySpeeder/LuckySpeeder/LuckySpeeder.dylib
-          
+          name: LuckySpeedTweakiPhoneARM64
+          path: /Users/runner/work/LuckySpeeder/LuckySpeeder/LuckySpeeder-iphone-arm64.dylib
+      - name: Upload MacOS ARM64 file artifact to workflow
+        uses: actions/upload-artifact@v4
+        with:
+          name: LuckySpeedTweakMacOSARM64
+          path: /Users/runner/work/LuckySpeeder/LuckySpeeder/LuckySpeeder-macos-arm64.dylib
+      - name: Upload MacOS x86 file artifact to workflow
+        uses: actions/upload-artifact@v4
+        with:
+          name: LuckySpeedTweakMacOSx86
+          path: /Users/runner/work/LuckySpeeder/LuckySpeeder/LuckySpeeder-macos-x86.dylib
   create-release:
     needs: 
       - compile-dylib
@@ -42,10 +51,18 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: download results from job compile-dylib
+      - name: download results from job compile-dylib iPhone ARM64 file
         uses: actions/download-artifact@v4
         with:
-          name: LuckySpeedTweak
+          name: LuckySpeedTweakiPhoneARM64
+      - name: download results from job compile-dylib MacOS ARM64 file
+        uses: actions/download-artifact@v4
+        with:
+          name: LuckySpeedTweakMacOSARM64
+      - name: download results from job compile-dylib MacOS x86 file
+        uses: actions/download-artifact@v4
+        with:
+          name: LuckySpeedTweakMacOSx86
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
@@ -55,4 +72,6 @@ jobs:
           prerelease: 0
           tag_name: v0.0.2-1
           files: |
-            LuckySpeeder.dylib
+            LuckySpeeder-iphone-arm64.dylib
+            LuckySpeeder-macos-arm64.dylib
+            LuckySpeeder-macos-x86.dylib
