@@ -35,7 +35,7 @@ SOFTWARE.
 
 // hook unity timeScale
 
-static float timeScale_speed = 10.0;
+static float timeScale_speed = 1.0;
 
 static void (*real_timeScale)(float) = NULL;
 
@@ -167,3 +167,48 @@ void set_timeScale(float a1) {
 }
 
 void restore_timeScale() { set_timeScale(1.0); }
+
+- (void)initHook {
+  hook_timeScale();
+  set_timeScale(10.0);
+}
+
+@interface AppInitializer : NSObject
++ (void)waitForAppToLoad:(void (^)(void))completionHandler;
+@end
+
+@implementation AppInitializer
+
++ (void)waitForAppToLoad:(void (^)(void))completionHandler {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSTimer *checkTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
+                                                               repeats:YES
+                                                                 block:^(NSTimer * _Nonnull timer) {
+            // Comprehensive checks for app readiness
+            if ([NSApp isRunning] && 
+                [NSApp keyWindow] && 
+                [[NSApp windows] count] > 0) {
+                
+                // Stop the timer
+                [timer invalidate];
+                
+                // Run the completion handler
+                if (completionHandler) {
+                    completionHandler();
+                }
+            }
+        }];
+    });
+}
+
+@end
+
+// Constructor to run when dylib is loaded
+__attribute__((constructor)) static void initialize(void) {
+    @autoreleasepool {
+        // Wait for app to load and then run custom code
+        [AppInitializer waitForAppToLoad:^{
+           [self initHook];
+        }];
+    }
+}
