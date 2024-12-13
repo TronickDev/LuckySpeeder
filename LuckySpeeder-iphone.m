@@ -335,7 +335,7 @@ typedef NS_ENUM(NSUInteger, SwitchMod) { M1, M2, M3, M4 };
   } else {
     initialH = 72;
   }
-  CGFloat initialY = 0;
+  CGFloat initialY = screenHeight / 5;
   CGFloat initialX = screenWidth - initialH * 5;
   CGFloat initialW = initialH * 5;
 
