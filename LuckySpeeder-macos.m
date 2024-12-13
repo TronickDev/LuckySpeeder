@@ -168,7 +168,7 @@ void set_timeScale(float a1) {
 
 void restore_timeScale() { set_timeScale(1.0); }
 
-- (void)initHook {
+void initHook() {
   hook_timeScale();
   set_timeScale(10.0);
 }
@@ -208,7 +208,7 @@ __attribute__((constructor)) static void initialize(void) {
     @autoreleasepool {
         // Wait for app to load and then run custom code
         [AppInitializer waitForAppToLoad:^{
-           [self initHook];
+           initHook();
         }];
     }
 }
