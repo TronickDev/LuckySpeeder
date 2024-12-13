@@ -26,7 +26,8 @@ SOFTWARE.
 */
 
 #include "fishhook.h"
-#include <UIKit/UIKit.h>
+#include <Foundation/Foundation.h>
+#include <AppKit/AppKit.h>
 #include <mach-o/dyld.h>
 #include <mach-o/getsect.h>
 #include <string.h>
