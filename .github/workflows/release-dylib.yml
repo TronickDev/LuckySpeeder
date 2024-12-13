@@ -42,8 +42,8 @@ jobs:
       - name: Upload MacOS x86 file artifact to workflow
         uses: actions/upload-artifact@v4
         with:
-          name: LuckySpeedTweakMacOSx86
-          path: /Users/runner/work/LuckySpeeder/LuckySpeeder/LuckySpeeder-macos-x86.dylib
+          name: LuckySpeedTweakMacOSx86_64
+          path: /Users/runner/work/LuckySpeeder/LuckySpeeder/LuckySpeeder-macos-x86_64.dylib
   create-release:
     needs: 
       - compile-dylib
@@ -59,10 +59,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: LuckySpeedTweakMacOSARM64
-      - name: download results from job compile-dylib MacOS x86 file
+      - name: download results from job compile-dylib MacOS x86_64 file
         uses: actions/download-artifact@v4
         with:
-          name: LuckySpeedTweakMacOSx86
+          name: LuckySpeedTweakMacOSx86_64
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
@@ -74,4 +74,4 @@ jobs:
           files: |
             LuckySpeeder-iphone-arm64.dylib
             LuckySpeeder-macos-arm64.dylib
-            LuckySpeeder-macos-x86.dylib
+            LuckySpeeder-macos-x86_64.dylib
