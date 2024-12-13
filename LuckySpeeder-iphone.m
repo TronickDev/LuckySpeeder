@@ -371,7 +371,7 @@ typedef NS_ENUM(NSUInteger, SwitchMod) { M1, M2, M3, M4 };
     @30,  @40,   @50,  @60,   @70,  @80,  @90,  @100, @200, @500, @1000
   ];
 
-  self.currentIndex = 5;
+  self.currentIndex = 22;
 
   self.button1 = [UIButton buttonWithType:UIButtonTypeCustom];
   self.button1.frame = CGRectMake(0, 0, buttonWidth, buttonWidth);
