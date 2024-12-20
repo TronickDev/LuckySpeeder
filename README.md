@@ -1,4 +1,4 @@
-!! - THIS IS A FORK AND WILL NOT FULLY WORK IN THE MOST TIMES - !!
+!! - THIS IS A FORK - !!
 
 Please note, a lot of things I add just brainstorming and not even work. I adjust this just to suite me better for playing Hearthstone Battlegrounds.
 
