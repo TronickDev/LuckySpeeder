@@ -1,3 +1,33 @@
+!! - THIS IS A FORK AND WILL NOT FULLY WORK IN THE MOST TIMES - !!
+
+Please note, a lot of things I add just brainstorming and not even work. I adjust this just to suite me better for playing Hearthstone Battlegrounds.
+
+Goals:
+ - 1. working iPhone OS Version
+ - 2. working MacOS arm64 Version
+ - 3. working MacOS x86 Version (maybe not needed)
+ - 4. working Windows 10/11 Version
+
+1.
+He (@kekeimiku) already made the version working for iPhone OS (tested with iOS 16.1.2 injected via TrollFolls).
+I just adjusted some things. Should work with injection into the IPA to Sideload/installing or just injection with TrollFolls will work.
+
+2.
+He (@kekeimiku) is working on this, but you can already use it by creating a IPA with the LuckySpeeder included (injection into the framework is important) to run it with Playcover.
+
+3.
+As this will only work on MacOS up to 10.13.6 this is not really goal but just nice to have. Still not needed as all new MacBooks are ARM64 where you can Playcover in order to use the iPhone OS version.
+
+4.
+I'm not that deep into this stuff, but this code already helped a lot to learn. I got Hearthstone working to run on 10f Time.timeScale by adjusting things via DNSpy as the DLL files are not encrypted.
+So far so good. I will try to create something similar to be injectable as DLL or replacing the DLLs within the Hearthstone folder.
+
+For me, it is just fun :)
+
+@kekeimiku looks to work on a version for Apple Vision.
+
+
+@kekeimiku README file content:
 # Lucky Speeder
 
 > Support (Jailbreak/Jailed) iphoneos-version>=13.0
