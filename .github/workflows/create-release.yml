@@ -31,12 +31,59 @@ jobs:
           bash build.sh arm64-apple-ios-macabi
           bash build.sh arm64-apple-xros
           bash build.sh arm64-apple-tvos
-          ls
-          cd /Users/runner/work/LuckySpeeder/LuckySpeeder/out/arm64-apple-ios/
-          ls
-          cd /Users/runner/work/LuckySpeeder/LuckySpeeder/out/arm64-apple-ios-macabi/
-          ls
-          cd /Users/runner/work/LuckySpeeder/LuckySpeeder/out/arm64-apple-xros/
-          ls
-          cd /Users/runner/work/LuckySpeeder/LuckySpeeder/out/arm64-apple-tvos/
-          ls
+      - name: Upload arm64-apple-ios file artifact to workflow
+        uses: actions/upload-artifact@v4
+        with:
+          name: LuckySpeed-arm64-apple-ios
+          path: /Users/runner/work/LuckySpeeder/LuckySpeeder/out/arm64-apple-ios/LuckySpeeder-arm64-apple-ios.dylib
+      - name: Upload arm64-apple-ios-macabi file artifact to workflow
+        uses: actions/upload-artifact@v4
+        with:
+          name: LuckySpeed-arm64-apple-ios-macabi
+          path: /Users/runner/work/LuckySpeeder/LuckySpeeder/out/arm64-apple-ios-macabi/LuckySpeeder-arm64-apple-ios-macabi.dylib
+      - name: Upload arm64-apple-xros file artifact to workflow
+        uses: actions/upload-artifact@v4
+        with:
+          name: LuckySpeed-arm64-apple-xros
+          path: /Users/runner/work/LuckySpeeder/LuckySpeeder/out/arm64-apple-xros/LuckySpeeder-arm64-apple-xros.dylib
+      - name: Upload arm64-apple-tvos file artifact to workflow
+        uses: actions/upload-artifact@v4
+        with:
+          name: LuckySpeed-arm64-apple-tvos
+          path: /Users/runner/work/LuckySpeeder/LuckySpeeder/out/arm64-apple-tvos/LuckySpeeder-arm64-apple-tvos.dylib
+  upload-release:
+    needs: 
+      - compile-LuckySpeeder
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: download results from job "compile-LuckySpeeder" - LuckySpeed-arm64-apple-ios
+        uses: actions/download-artifact@v4
+        with:
+          name: LuckySpeed-arm64-apple-ios
+      - name: download results from job "compile-LuckySpeeder" - LuckySpeed-arm64-apple-ios-macabi
+        uses: actions/download-artifact@v4
+        with:
+          name: LuckySpeed-arm64-apple-ios-macabi
+      - name: download results from job "compile-LuckySpeeder" - LuckySpeed-arm64-apple-xros
+        uses: actions/download-artifact@v4
+        with:
+          name: LuckySpeed-arm64-apple-xros
+      - name: download results from job "compile-LuckySpeeder" - LuckySpeed-arm64-apple-tvos
+        uses: actions/download-artifact@v4
+        with:
+          name: LuckySpeed-arm64-apple-tvos
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "LuckySpeeder with more multipliers to choose of!"
+          body: "Date: 2025-10-01-16-11 This is a fork which adds more multipliers to the overlay."
+          draft: 0
+          prerelease: 0
+          tag_name: v0.0.4-1
+          files: |
+            LuckySpeeder-arm64-apple-ios.dylib
+            LuckySpeeder-arm64-apple-ios-macabi.dylib
+            LuckySpeeder-arm64-apple-xros.dylib
+            LuckySpeeder-arm64-apple-tvos.dylib
