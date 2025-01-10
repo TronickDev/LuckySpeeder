@@ -24,7 +24,7 @@ for target in "$@"; do
             -isysroot $sdk_dir \
             -framework Foundation \
             -framework UIKit \
-            -o $out_dir/LuckySpeeder.dylib LuckySpeeder.m \
+            -o $out_dir/LuckySpeeder-arm64-apple-ios.dylib LuckySpeeder.m \
             -Ofast \
             -flto
         ;;
@@ -43,7 +43,7 @@ for target in "$@"; do
             -iframework $sdk_dir/System/iOSSupport/System/Library/Frameworks \
             -framework Foundation \
             -framework UIKit \
-            -o $out_dir/LuckySpeeder.dylib LuckySpeeder.m \
+            -o $out_dir/LuckySpeeder-arm64-apple-ios-macabi.dylib LuckySpeeder.m \
             -Ofast \
             -flto
         ;;
@@ -60,7 +60,7 @@ for target in "$@"; do
             -isysroot $sdk_dir \
             -framework Foundation \
             -framework UIKit \
-            -o $out_dir/LuckySpeeder.dylib LuckySpeeder.m \
+            -o $out_dir/LuckySpeeder-arm64-apple-xros.dylib LuckySpeeder.m \
             -Ofast \
             -flto
         ;;
@@ -77,7 +77,7 @@ for target in "$@"; do
             -isysroot $sdk_dir \
             -framework Foundation \
             -framework UIKit \
-            -o $out_dir/LuckySpeeder.dylib LuckySpeeder.m \
+            -o $out_dir/LuckySpeeder-arm64-apple-tvos.dylib LuckySpeeder.m \
             -Ofast \
             -flto
         ;;
