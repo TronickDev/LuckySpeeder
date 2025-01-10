@@ -31,3 +31,12 @@ jobs:
           bash build.sh arm64-apple-ios-macabi
           bash build.sh arm64-apple-xros
           bash build.sh arm64-apple-tvos
+          ls
+          cd /Users/runner/work/LuckySpeeder/LuckySpeeder/out/arm64-apple-ios/
+          ls
+          cd /Users/runner/work/LuckySpeeder/LuckySpeeder/out/arm64-apple-ios-macabi/
+          ls
+          cd /Users/runner/work/LuckySpeeder/LuckySpeeder/out/arm64-apple-xros/
+          ls
+          cd /Users/runner/work/LuckySpeeder/LuckySpeeder/out/arm64-apple-tvos/
+          ls
