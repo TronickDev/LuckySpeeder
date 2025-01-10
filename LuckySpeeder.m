@@ -110,10 +110,11 @@ typedef NS_ENUM(NSUInteger, SpeedMode) { Heart, Spade, Club, Diamond };
 
   self.speedValues = @[
     @0.1, @0.25, @0.5, @0.75, @0.9, @1,   @1.1, @1.2, @1.3, @1.4, @1.5, @1.6,
-    @1.7, @1.8,  @1.9, @2,    @2.1, @2.2, @2.3, @2.4, @2.5, @5,   @10
+    @1.7, @1.8,  @1.9, @2,    @2.1, @2.2, @2.3, @2.4, @2.5, @5,   @10,  @20,
+    @50,  @100,  @200, @500,  @1000
   ];
 
-  self.currentIndex = 5;
+  self.currentIndex = 22;
 
   self.button1 = [UIButton buttonWithType:UIButtonTypeCustom];
   self.button1.frame = CGRectMake(0, 0, buttonWidth, buttonWidth);
