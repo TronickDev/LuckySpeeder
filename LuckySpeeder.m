@@ -287,7 +287,7 @@ static void resetHook() {
   self.button2.hidden = YES;
   self.button3.hidden = YES;
   self.button4.hidden = YES;
-  self.button5.hidden = YES;
+  self.button5.hidden = NO;
   self.button6.frame = self.bounds;
   self.button6.hidden = NO;
 }
