@@ -30,9 +30,12 @@ SOFTWARE.
 
 static float speedValues[] = {0.1, 0.25, 0.5, 0.75, 0.9, 1.0, 1.1, 1.2,
                               1.3, 1.4,  1.5, 1.6,  1.7, 1.8, 1.9, 2.0,
-                              2.1, 2.2,  2.3, 2.4,  2.5, 5.0, 10.0};
-static int currentIndex = 5;
-static float currentValue = 1.0;
+                              2.1, 2.2,  2.3, 2.4,  2.5, 5.0, 10.0, 20.0,
+                              30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.0,
+                              200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0,
+                              900.0, 1000.0};
+static int currentIndex = 22;
+static float currentValue = 10.0;
 static int speedValuesCount = sizeof(speedValues) / sizeof(float);
 
 enum SpeedMode { Heart, Spade, Club, Diamond };
