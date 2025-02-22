@@ -213,7 +213,7 @@ static void resetHook() {
   [self.button6 setImage:[UIImage systemImageNamed:@"clock.fill"
                                  withConfiguration:self.symbolConfiguration]
                 forState:UIControlStateNormal];
-  self.button6.hidden = YES;
+  //self.button6.hidden = YES;
   [self.button6 addTarget:self
                    action:@selector(Button6Changed)
          forControlEvents:UIControlEventTouchUpInside];
