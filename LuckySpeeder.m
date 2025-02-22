@@ -270,7 +270,7 @@ static void resetHook() {
     return;
   }
 
-  CGFloat buttonWidth = self.bounds.size.height * 2;
+  CGFloat buttonWidth = self.bounds.size.height;
   CGFloat newX = self.center.x < self.windowWidth / 2
                      ? self.frame.origin.x
                      : self.frame.origin.x + 4 * buttonWidth;
@@ -278,7 +278,7 @@ static void resetHook() {
   [UIView animateWithDuration:0.4
                    animations:^{
                      self.frame = CGRectMake(newX, self.frame.origin.y,
-                                             buttonWidth, buttonWidth);
+                                             buttonWidth, buttonWidth * 2);
                      self.alpha = 0.5;
                      self.layer.cornerRadius = buttonWidth / 2;
                    }];
