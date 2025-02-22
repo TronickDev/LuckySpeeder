@@ -209,6 +209,7 @@ static void resetHook() {
   [self addSubview:self.button5];
 
   self.button6 = [UIButton buttonWithType:UIButtonTypeCustom];
+  self.button6.frame = CGRectMake(5 * buttonWidth, 0, buttonWidth, buttonWidth);
   [self.button6 setImage:[UIImage systemImageNamed:@"clock.fill"
                                  withConfiguration:self.symbolConfiguration]
                 forState:UIControlStateNormal];
@@ -288,7 +289,7 @@ static void resetHook() {
   self.button3.hidden = YES;
   self.button4.hidden = YES;
   self.button5.hidden = NO;
-  self.button6.frame = self.bounds / 2;
+  //self.button6.frame = self.bounds;
   self.button6.hidden = NO;
 }
 
