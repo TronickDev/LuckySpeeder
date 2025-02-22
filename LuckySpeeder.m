@@ -270,7 +270,7 @@ static void resetHook() {
     return;
   }
 
-  CGFloat buttonWidth = self.bounds.size.height;
+  CGFloat buttonWidth = self.bounds.size.height * 2;
   CGFloat newX = self.center.x < self.windowWidth / 2
                      ? self.frame.origin.x
                      : self.frame.origin.x + 4 * buttonWidth;
