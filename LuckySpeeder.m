@@ -279,7 +279,7 @@ static void resetHook() {
                    animations:^{
                      self.frame = CGRectMake(newX, self.frame.origin.y,
                                              buttonWidth * 2, buttonWidth);
-                     self.alpha = 0.5;
+                     self.alpha = 1;
                      self.layer.cornerRadius = buttonWidth / 2;
                    }];
 
@@ -435,7 +435,7 @@ static void resetHook() {
 }
 
 - (void)Button6Changed {
-  CGFloat buttonWidth = self.frame.size.width;
+  CGFloat buttonWidth = self.frame.size.width / 2;
   CGFloat expandedWidth = buttonWidth * 5;
   CGFloat newX = self.center.x < self.windowWidth / 2
                      ? self.frame.origin.x
