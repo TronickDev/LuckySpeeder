@@ -136,7 +136,7 @@ static void resetHook() {
     initialH = 72;
   }
 
-  CGFloat initialW = initialH * 5;
+  CGFloat initialW = initialH * 6;
   CGFloat initialX = self.windowWidth - initialH * 5 - 20;
   CGFloat initialY = self.windowHeight / 5;
 
