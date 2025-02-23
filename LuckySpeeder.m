@@ -275,7 +275,7 @@ static void resetHook() {
   CGFloat contractedWidth = buttonWidth * 2;
   CGFloat newX = self.center.x < self.windowWidth / 2
                      ? self.frame.origin.x
-                     : self.frame.origin.x + 4 * buttonWidth;
+                     : self.frame.origin.x + 4 * contractedWidth;
 
   [UIView animateWithDuration:0.4
                    animations:^{
@@ -290,11 +290,10 @@ static void resetHook() {
   self.button3.hidden = YES;
   self.button4.hidden = YES;
   self.button5.hidden = NO;
-  self.button6.frame = self.bounds;
   self.button6.hidden = NO;
 
-  //self.button5.frame = CGRectMake(0, 0, buttonWidth, buttonWidth);
-  //self.button6.frame = CGRectMake(buttonWidth, 0, buttonWidth, buttonWidth);
+  self.button5.frame = CGRectMake(0, 0, buttonWidth, buttonWidth);
+  self.button6.frame = CGRectMake(buttonWidth, 0, buttonWidth, buttonWidth);
 }
 
 - (void)Button1Changed {
