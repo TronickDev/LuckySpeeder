@@ -281,7 +281,7 @@ static void resetHook() {
                    animations:^{
                      self.frame = CGRectMake(newX, self.frame.origin.y,
                                              contractedWidth, buttonWidth);
-                     self.alpha = 1;
+                     self.alpha = 0.5;
                      self.layer.cornerRadius = buttonWidth / 2;
                    }];
 
