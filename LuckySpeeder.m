@@ -453,14 +453,14 @@ static void resetHook() {
         self.layer.cornerRadius = buttonWidth / 2;
       }
       completion:^(BOOL finished) {
+        self.button5.frame = CGRectMake(4 * buttonWidth, 0, buttonWidth, buttonWidth);
         self.button1.hidden = NO;
         self.button2.hidden = NO;
         self.button3.hidden = NO;
         self.button4.hidden = NO;
         self.button5.hidden = NO;
         self.button6.hidden = YES;
-      }
-      self.button5.frame = CGRectMake(4 * buttonWidth, 0, buttonWidth, buttonWidth);];
+      }];
 
   [self resetIdleTimer];
 }
