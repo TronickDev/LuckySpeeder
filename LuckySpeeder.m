@@ -209,6 +209,7 @@ static void resetHook() {
   [self addSubview:self.button5];
 
   self.button6 = [UIButton buttonWithType:UIButtonTypeCustom];
+  self.button6.frame = CGRectMake(buttonWidth, 0, buttonWidth, buttonWidth);
   [self.button6 setImage:[UIImage systemImageNamed:@"clock.fill"
                                  withConfiguration:self.symbolConfiguration]
                 forState:UIControlStateNormal];
@@ -457,9 +458,9 @@ static void resetHook() {
         self.button3.hidden = NO;
         self.button4.hidden = NO;
         self.button5.hidden = NO;
-        self.button5.frame = CGRectMake(4 * buttonWidth, 0, buttonWidth, buttonWidth);
         self.button6.hidden = YES;
-      }];
+      }
+      self.button5.frame = CGRectMake(4 * buttonWidth, 0, buttonWidth, buttonWidth);];
 
   [self resetIdleTimer];
 }
