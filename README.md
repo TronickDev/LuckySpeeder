@@ -1,3 +1,9 @@
+# !!!! -- THIS IS A FORK WHICH MAY NOT WORK -- !!!!
+
+I just like this project. Therefore, i made a fork of it to adjust things for my needs - just for fun and learning.
+
+# !!!! -- THIS IS A FORK WHICH MAY NOT WORK -- !!!!
+
 # Lucky Speeder
 
 > Support (Jailbreak/Jailed)  
