@@ -209,11 +209,10 @@ static void resetHook() {
   [self addSubview:self.button5];
 
   self.button6 = [UIButton buttonWithType:UIButtonTypeCustom];
-  self.button6.frame = CGRectMake(5 * buttonWidth, 0, buttonWidth, buttonWidth);
   [self.button6 setImage:[UIImage systemImageNamed:@"clock.fill"
                                  withConfiguration:self.symbolConfiguration]
                 forState:UIControlStateNormal];
-  //self.button6.hidden = YES;
+  self.button6.hidden = YES;
   [self.button6 addTarget:self
                    action:@selector(Button6Changed)
          forControlEvents:UIControlEventTouchUpInside];
@@ -272,6 +271,7 @@ static void resetHook() {
   }
 
   CGFloat buttonWidth = self.bounds.size.height;
+  CGFloat contractedWidth = buttonWidth * 2;
   CGFloat newX = self.center.x < self.windowWidth / 2
                      ? self.frame.origin.x
                      : self.frame.origin.x + 4 * buttonWidth;
@@ -279,7 +279,7 @@ static void resetHook() {
   [UIView animateWithDuration:0.4
                    animations:^{
                      self.frame = CGRectMake(newX, self.frame.origin.y,
-                                             buttonWidth * 2, buttonWidth);
+                                             contractedWidth, buttonWidth);
                      self.alpha = 1;
                      self.layer.cornerRadius = buttonWidth / 2;
                    }];
@@ -289,8 +289,10 @@ static void resetHook() {
   self.button3.hidden = YES;
   self.button4.hidden = YES;
   self.button5.hidden = NO;
-  //self.button6.frame = self.bounds;
   self.button6.hidden = NO;
+
+  self.button5.frame = CGRectMake(0, 0, buttonWidth, buttonWidth);
+  self.button6.frame = CGRectMake(buttonWidth, 0, buttonWidth, buttonWidth);
 }
 
 - (void)Button1Changed {
@@ -455,6 +457,7 @@ static void resetHook() {
         self.button3.hidden = NO;
         self.button4.hidden = NO;
         self.button5.hidden = NO;
+        self.button5.frame = CGRectMake(4 * buttonWidth, 0, buttonWidth, buttonWidth);
         self.button6.hidden = YES;
       }];
 
