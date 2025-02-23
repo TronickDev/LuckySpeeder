@@ -275,7 +275,7 @@ static void resetHook() {
   CGFloat contractedWidth = buttonWidth * 2;
   CGFloat newX = self.center.x < self.windowWidth / 2
                      ? self.frame.origin.x
-                     : self.frame.origin.x + 4 * contractedWidth;
+                     : self.frame.origin.x + 3 * buttonWidth;
 
   [UIView animateWithDuration:0.4
                    animations:^{
