@@ -24,10 +24,10 @@ for target in "$@"; do
             -isysroot $sdk_dir \
             -framework Foundation \
             -framework UIKit \
-            -o $out_dir/LuckySpeeder.dylib LuckySpeeder.m LuckySpeeder.c fishhook.c \
+            -o $out_dir/LuckySpeeder-arm64-apple-ios.dylib LuckySpeeder.m LuckySpeeder.c fishhook.c \
             -Ofast \
             -flto
-        strip -x $out_dir/LuckySpeeder.dylib
+        strip -x $out_dir/LuckySpeeder-arm64-apple-ios.dylib
         ;;
     arm64-apple-ios-macabi)
         echo "Building for $target..."
@@ -47,7 +47,7 @@ for target in "$@"; do
             -o $out_dir/LuckySpeeder.dylib LuckySpeeder.m LuckySpeeder.c fishhook.c \
             -Ofast \
             -flto
-        strip -x $out_dir/LuckySpeeder.dylib
+        strip -x $out_dir/LuckySpeeder-arm64-apple-ios-macabi.dylib
         ;;
     arm64-apple-xros)
         echo "Building for $target..."
@@ -62,10 +62,10 @@ for target in "$@"; do
             -isysroot $sdk_dir \
             -framework Foundation \
             -framework UIKit \
-            -o $out_dir/LuckySpeeder.dylib LuckySpeeder.m LuckySpeeder.c fishhook.c \
+            -o $out_dir/LuckySpeeder-arm64-apple-xros.dylib LuckySpeeder.m LuckySpeeder.c fishhook.c \
             -Ofast \
             -flto
-        strip -x $out_dir/LuckySpeeder.dylib
+        strip -x $out_dir/LuckySpeeder-arm64-apple-xros.dylib
         ;;
     arm64-apple-tvos)
         echo "Building for $target..."
@@ -80,10 +80,10 @@ for target in "$@"; do
             -isysroot $sdk_dir \
             -framework Foundation \
             -framework UIKit \
-            -o $out_dir/LuckySpeeder.dylib LuckySpeeder.m LuckySpeeder.c fishhook.c \
+            -o $out_dir/LuckySpeeder-arm64-apple-tvos.dylib LuckySpeeder.m LuckySpeeder.c fishhook.c \
             -Ofast \
             -flto
-        strip -x $out_dir/LuckySpeeder.dylib
+        strip -x $out_dir/LuckySpeeder-arm64-apple-tvos.dylib
         ;;
     *)
         echo "Invalid target: $target"
