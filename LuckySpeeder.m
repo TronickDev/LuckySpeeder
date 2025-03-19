@@ -30,9 +30,12 @@ SOFTWARE.
 
 static const float speedValues[] = {0.1, 0.25, 0.5, 0.75, 0.9, 1.0, 1.1, 1.2,
                                     1.3, 1.4,  1.5, 1.6,  1.7, 1.8, 1.9, 2.0,
-                                    2.1, 2.2,  2.3, 2.4,  2.5, 5.0, 10.0};
-static int currentIndex = 5;
-static float currentValue = 1.0;
+                                    2.1, 2.2,  2.3, 2.4,  2.5, 5.0, 10.0, 20.0,
+                                    30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.0,
+                                    200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0,
+                                    900.0, 1000.0};
+static int currentIndex = 22;
+static float currentValue = 10.0;
 static const int speedValuesCount = sizeof(speedValues) / sizeof(float);
 
 enum SpeedMode { Heart, Spade, Club, Diamond };
@@ -206,6 +209,7 @@ static void resetHook() {
   [self addSubview:self.button5];
 
   self.button6 = [UIButton buttonWithType:UIButtonTypeCustom];
+  self.button6.frame = CGRectMake(buttonWidth, 0, buttonWidth, buttonWidth);
   [self.button6 setImage:[UIImage systemImageNamed:@"clock.fill"
                                  withConfiguration:self.symbolConfiguration]
                 forState:UIControlStateNormal];
@@ -268,14 +272,15 @@ static void resetHook() {
   }
 
   CGFloat buttonWidth = self.bounds.size.height;
+  CGFloat contractedWidth = buttonWidth * 2;
   CGFloat newX = self.center.x < self.windowWidth / 2
                      ? self.frame.origin.x
-                     : self.frame.origin.x + 4 * buttonWidth;
+                     : self.frame.origin.x + 3 * buttonWidth;
 
   [UIView animateWithDuration:0.4
                    animations:^{
                      self.frame = CGRectMake(newX, self.frame.origin.y,
-                                             buttonWidth, buttonWidth);
+                                             contractedWidth, buttonWidth);
                      self.alpha = 0.5;
                      self.layer.cornerRadius = buttonWidth / 2;
                    }];
@@ -285,8 +290,11 @@ static void resetHook() {
   self.button3.hidden = YES;
   self.button4.hidden = YES;
   self.button5.hidden = YES;
-  self.button6.frame = self.bounds;
+  self.button5.hidden = NO;
   self.button6.hidden = NO;
+
+  self.button5.frame = CGRectMake(0, 0, buttonWidth, buttonWidth);
+  self.button6.frame = CGRectMake(buttonWidth, 0, buttonWidth, buttonWidth);
 }
 
 - (void)Button1Changed {
@@ -434,11 +442,11 @@ static void resetHook() {
 }
 
 - (void)Button6Changed {
-  CGFloat buttonWidth = self.frame.size.width;
+  CGFloat buttonWidth = self.frame.size.width / 2;
   CGFloat expandedWidth = buttonWidth * 5;
   CGFloat newX = self.center.x < self.windowWidth / 2
                      ? self.frame.origin.x
-                     : self.frame.origin.x - 4 * buttonWidth;
+                     : self.frame.origin.x - 3 * buttonWidth;
 
   [UIView animateWithDuration:0.4
       animations:^{
@@ -448,6 +456,7 @@ static void resetHook() {
         self.layer.cornerRadius = buttonWidth / 2;
       }
       completion:^(BOOL finished) {
+        self.button5.frame = CGRectMake(4 * buttonWidth, 0, buttonWidth, buttonWidth);
         self.button1.hidden = NO;
         self.button2.hidden = NO;
         self.button3.hidden = NO;
