@@ -81,7 +81,7 @@ jobs:
           body: "Date: 2025-23-02-02-25 This is a fork which adds more multipliers to the overlay + being able to start/pause in the contracted view."
           draft: 0
           prerelease: 0
-          tag_name: v0.0.5-1
+          tag_name: v0.0.5-2
           files: |
             LuckySpeeder-arm64-apple-ios.dylib
             LuckySpeeder-arm64-apple-ios-macabi.dylib
