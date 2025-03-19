@@ -77,7 +77,7 @@ jobs:
       - name: Prerelease
         uses: softprops/action-gh-release@v2
         with:
-          name: "LuckySpeeder with some changes -> check the README file"
+          name: "PreRelease - LuckySpeeder with some changes -> check the README file"
           body: "Date: 2025-19-03-07-30 This is a fork which adds more multipliers to the overlay + being able to start/pause in the contracted view."
           draft: 0
           prerelease: 1
