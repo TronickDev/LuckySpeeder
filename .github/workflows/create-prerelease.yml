@@ -1,0 +1,89 @@
+# This is a basic workflow to help you get started with Actions
+
+name: create-prerelease
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  #push:
+  #  branches: [ "main" ]
+  #pull_request:
+  #  branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  compile-LuckySpeeder:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install dependencies and prepare
+        run: |
+          sudo xcode-select --switch /Applications/Xcode.app
+      - name: Compile tweak
+        run: |
+          cd /Users/runner/work/LuckySpeeder/LuckySpeeder
+          chmod +x build.sh 
+          bash build.sh arm64-apple-ios
+          bash build.sh arm64-apple-ios-macabi
+          bash build.sh arm64-apple-xros
+          bash build.sh arm64-apple-tvos
+      - name: Upload arm64-apple-ios file artifact to workflow
+        uses: actions/upload-artifact@v4
+        with:
+          name: LuckySpeed-arm64-apple-ios
+          path: /Users/runner/work/LuckySpeeder/LuckySpeeder/out/arm64-apple-ios/LuckySpeeder-arm64-apple-ios.dylib
+      - name: Upload arm64-apple-ios-macabi file artifact to workflow
+        uses: actions/upload-artifact@v4
+        with:
+          name: LuckySpeed-arm64-apple-ios-macabi
+          path: /Users/runner/work/LuckySpeeder/LuckySpeeder/out/arm64-apple-ios-macabi/LuckySpeeder-arm64-apple-ios-macabi.dylib
+      - name: Upload arm64-apple-xros file artifact to workflow
+        uses: actions/upload-artifact@v4
+        with:
+          name: LuckySpeed-arm64-apple-xros
+          path: /Users/runner/work/LuckySpeeder/LuckySpeeder/out/arm64-apple-xros/LuckySpeeder-arm64-apple-xros.dylib
+      - name: Upload arm64-apple-tvos file artifact to workflow
+        uses: actions/upload-artifact@v4
+        with:
+          name: LuckySpeed-arm64-apple-tvos
+          path: /Users/runner/work/LuckySpeeder/LuckySpeeder/out/arm64-apple-tvos/LuckySpeeder-arm64-apple-tvos.dylib
+  upload-prerelease:
+    needs: 
+      - compile-LuckySpeeder
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: download results from job "compile-LuckySpeeder" - LuckySpeed-arm64-apple-ios
+        uses: actions/download-artifact@v4
+        with:
+          name: LuckySpeed-arm64-apple-ios
+      - name: download results from job "compile-LuckySpeeder" - LuckySpeed-arm64-apple-ios-macabi
+        uses: actions/download-artifact@v4
+        with:
+          name: LuckySpeed-arm64-apple-ios-macabi
+      - name: download results from job "compile-LuckySpeeder" - LuckySpeed-arm64-apple-xros
+        uses: actions/download-artifact@v4
+        with:
+          name: LuckySpeed-arm64-apple-xros
+      - name: download results from job "compile-LuckySpeeder" - LuckySpeed-arm64-apple-tvos
+        uses: actions/download-artifact@v4
+        with:
+          name: LuckySpeed-arm64-apple-tvos
+      - name: Prerelease
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "PreRelease - LuckySpeeder with some changes -> check the README file"
+          body: "Date: 2025-19-03-07-30 This is a fork which adds more multipliers to the overlay + being able to start/pause in the contracted view."
+          draft: 0
+          prerelease: 1
+          tag_name: v0.0.5-2
+          files: |
+            LuckySpeeder-arm64-apple-ios.dylib
+            LuckySpeeder-arm64-apple-ios-macabi.dylib
+            LuckySpeeder-arm64-apple-xros.dylib
+            LuckySpeeder-arm64-apple-tvos.dylib
