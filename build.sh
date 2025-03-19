@@ -44,7 +44,7 @@ for target in "$@"; do
             -iframework $sdk_dir/System/iOSSupport/System/Library/Frameworks \
             -framework Foundation \
             -framework UIKit \
-            -o $out_dir/LuckySpeeder.dylib LuckySpeeder.m LuckySpeeder.c fishhook.c \
+            -o $out_dir/LuckySpeeder-arm64-apple-ios-macabi.dylib LuckySpeeder.m LuckySpeeder.c fishhook.c \
             -Ofast \
             -flto
         strip -x $out_dir/LuckySpeeder-arm64-apple-ios-macabi.dylib
