@@ -12,6 +12,9 @@ TronickDev-version changes:
  - changed the default speed value to 10f instead of 1f (not active still paused)
  - changed what buttons are shown in the contracted view
 
+ Demo Video of TronickDev Version:
+ https://github.com/TronickDev/LuckySpeeder/blob/main/LuckySpeeder-TronickDev-Version.mp4
+
 # !!!! -- THIS IS A FORK WHICH MAY NOT WORK -- !!!!
 
 # Lucky Speeder
