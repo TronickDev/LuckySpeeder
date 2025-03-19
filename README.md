@@ -9,7 +9,7 @@ Branch structure:
 
 TronickDev-version changes:
  - added more multipliers to choose of
- - changed the default speed value to 10f instead of 1f
+ - changed the default speed value to 10f instead of 1f (not active still paused)
  - changed what buttons are shown in the contracted view
 
 # !!!! -- THIS IS A FORK WHICH MAY NOT WORK -- !!!!
