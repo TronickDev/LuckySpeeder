@@ -12,8 +12,9 @@ TronickDev-version changes:
  - changed the default speed value to 10f instead of 1f (not active still paused)
  - changed what buttons are shown in the contracted view
 
- Demo Video of TronickDev Version:
- https://github.com/user-attachments/assets/10448d1f-0588-4bbe-8028-104bcbf583b7
+## Demo Video of TronickDev Version:
+ 
+https://github.com/user-attachments/assets/10448d1f-0588-4bbe-8028-104bcbf583b7
 
 # !!!! -- THIS IS A FORK WHICH MAY NOT WORK -- !!!!
 
