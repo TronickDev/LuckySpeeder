@@ -1,3 +1,19 @@
+# !!!! -- THIS IS A FORK WHICH MAY NOT WORK -- !!!!
+
+I just like this project. Therefore, i made a fork of it to adjust things for my needs - just for fun and learning.
+
+Branch structure:
+ - main -> latest test which mostly will not work 
+ - TronickDev-version -> working with adjustments  -> is the release download version of this repo
+ - kekeimiku-version -> latest version of kekeimiku -> https://github.com/kekeimiku/LuckySpeeder
+
+TronickDev-version changes:
+ - added more multipliers to choose of
+ - changed the default speed value to 10f instead of 1f (not active still paused)
+ - changed what buttons are shown in the contracted view
+
+# !!!! -- THIS IS A FORK WHICH MAY NOT WORK -- !!!!
+
 # Lucky Speeder
 
 > Support (Jailbreak/Jailed)  
